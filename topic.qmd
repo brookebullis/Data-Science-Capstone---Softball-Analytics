@@ -1,0 +1,9 @@
+---
+title: "Data Science Capstone - Softball Analytics"
+author: "Brooke Bullis"
+date: "September 8, 2026"
+format: pdf
+editor: visual
+---
+
+My faculty advisor is Coach JoAnne Ferguson, the softball coach. My capstone project will be building a player development model using Blast Motion and Rapsodo tracking data from the Pomona-Pitzer Varsity Softball program. Blast Motion tracks swing metrics like bat speed, attack angle, and time to contact, while Rapsodo tracks exit velocity, launch angle, spin rate, and break. I'll merge and clean the data from both systems, then use a random forest or gradient-boosted trees model to predict which players improved most over the season based on their early-season metrics. Feature importance analysis will show which metrics mattered most, so coaches can turn that into specific drill recommendations for players.
