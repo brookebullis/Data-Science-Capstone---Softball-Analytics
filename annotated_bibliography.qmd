@@ -1,0 +1,59 @@
+---
+title: "Annotated Bibliography"
+author: "Brooke Bullis"
+date: "September 15, 2026"
+---
+
+My three main sources cover how accurate tracking data for the technology I will be using is. It also covers if random forest is a reasonable method to use on softball data as well as if similar research has been used on collegiate hitters. The Li, Cheng, and Zhang paper is the closest publication I found to what I want to do for my project. In this study, they used random forest and SHAP feature importance on softball performance data to get strong results. Morishita and Jinji's study on bat sensor accuracy is helpful because my whole hitting analysis relies on Blast Motion data, and it is important to know where that data might be less reliable or if it favors linear or rotational hitters more. The Engelkes study is also useful because it's one of the only papers looking specifically at collegiate softball hitters while also using Rapsodo data. Even though their results didn't find what they expected, this is a good reminder that not every mechanic I test is going to predict improvement.
+
+**Main Sources**
+
+**Li, H., Cheng, G., & Zhang, T. (2025). Key factors and tactical variations in Chinese national women's softball games: a machine learning-based identification. *Frontiers in Sports and Active Living.*** https://pubmed.ncbi.nlm.nih.gov/41357824/
+
+This is the paper I will use to help guide my methodology. The authors ran random forest, XGBoost, KNN, and SVM on softball performance data from Chinese national teams and used SHAP values to figure out which factors were most important, such as pitchers' earned runs and on-base percentage. Random forest performed the best out of all of the models that they tested. I'm using this to back up why random forest and feature importance make sense for a softball dataset instead of using a method typically used for baseball.
+
+**Morishita, Y., & Jinji, T. (2022). Accuracy and Error Trends of Commercially Available Bat Swing Sensors in Baseball. *Sports, 10*(2), 21.** https://www.mdpi.com/2075-4663/10/2/21
+
+Since Blast Motion is a category of sensor rather than one unique piece of technology, this study tested several commercial bat sensors against motion capture and found swing speed measurements held up well, but swing angle didn't hold up nearly as well, especially at higher swing speeds. This is useful to my study because it will remind me to not treat Blast Motion numbers as flawless. Specifically, this paper states that data on swing angle and on-plane efficiency is less accurate the higher the bat speed is.
+
+**Engelkes, M., Bordelon, N., Downs-Talmage, J., Fava, A., Lozowski, B., Nebel, A., & Oliver, G. (2023). The Relationship Between Stride Mechanics at Foot Contact and Hitting Performance in Collegiate Softball Athletes. *International Journal of Exercise Science: Conference Proceedings, 16*(2), Article 45.** https://digitalcommons.wku.edu/ijesab/vol16/iss2/45
+
+There is not a lot of research specifically on collegiate softball hitters, so this paper stood out to me. The authors looked at whether stride mechanics at foot contact predicted hitting performance in NCAA Division I players and didn't find a significant relationship. This is useful because it means that I should not assume every early-seasonal mechanical metric I look at will have an effect.
+
+**Additional Sources**
+
+**Aucoin, D. (2019, July 30). Validating Rapsodo 2.0: Pitch Design Made Easier. *Driveline Baseball.*** https://www.drivelinebaseball.com/2019/07/validating-rapsodo-2-0-pitch-design-made-easier/
+
+Driveline tested Rapsodo 2.0 directly and found it caught around 79% of pitches accurately after some hardware and software fixes, though vertical break on fastballs was still a little off. This is important to note since it shows that Rapsodo is not 100% accurate.
+
+**Li, Y., & Mu, Y. (2024). Research and performance analysis of random forest-based feature selection algorithm in sports effectiveness evaluation. *Scientific Reports.*** https://www.nature.com/articles/s41598-024-76706-1
+
+This is a more general paper on using random forest for feature selection in sports data, however, it is not specific to softball. I'm including it alongside the Chinese softball paper as extra support that random forest is a reasonable way to pull out the metrics that matter most from a sports-related dataset.
+
+**Koseler, K., & Stephan, M. (2017). Machine Learning Applications in Baseball: A Systematic Literature Review. *Applied Artificial Intelligence.*** https://www.tandfonline.com/doi/full/10.1080/08839514.2018.1442991
+
+This is a literature review covering how machine learning has been used in baseball research over the years. This review discusses baseball analytics and how new machine learning methods are being utilized for new research.
+
+**Kwon, J. W. (2025). Athlete data sovereignty: addressing the legal and policy gaps in sports technology. *Frontiers in Sports and Active Living.*** https://www.frontiersin.org/journals/sports-and-active-living/articles/10.3389/fspor.2025.1742484/full
+
+This paper is important for the ethics section of my project. It looks at who actually owns athlete tracking data and where the legal protections fall short. This is important for me to utilize while I am working with the data collected from individuals on the softball team.
+
+**Predicting Batted Ball Outcomes in Major League Baseball.** Presented at the US Conference on Applications of Statistics. https://www.causeweb.org/usproc/sites/default/files/usclap/2019-1/Predicting%20Batted%20Ball%20Outcomes%20in%20Major%20League%20Baseball.pdf
+
+This project predicts outcomes from exit velocity and launch angle, which is structurally close to what I'm doing with early-season metrics predicting later improvement. I'm using it mainly as a reference point for how to engineer features from batted-ball data.
+
+**Werner, S. L., Jones, D. G., Guido, J. A., & Brunet, M. E. (2006). Kinematics and Kinetics of Elite Windmill Softball Pitching. *American Journal of Sports Medicine, 34*(4), 597-603.** https://journals.sagepub.com/doi/abs/10.1177/0363546505281796
+
+This paper discusses windmill pitching mechanics and is useful in softball biomechanics research. I'm including this as most of Blast Motion data is based off of kinematic baseball and softball movements.
+
+**Measures of Joint Kinematic Reliability During Repeated Softball Pitching. *Biomechanics, 5*(1), Article 3 (2025).** https://doi.org/10.3390/biomechanics5010003
+
+This paper looks at how consistent pitching kinematic measurements are across repeated pitches. This article is relevant because it includes biomechanical information which is useful for when I compare Blast Motion data and if this has any impact on how movement holds up over time.
+
+**Blast Motion, Inc. Blast Baseball technology and swing metrics documentation.** https://blastmotion.com
+
+Blast Motion is one technology I will be using to collect my data. This includes metrics such as bat speed, attack angle, on-plane efficiency, vertical bat angle, connection at impact, rotational acceleration, power, time to contact, and peak hand speed.
+
+**Rapsodo Inc. Rapsodo baseball and softball tracking technology.** https://rapsodo.com
+
+Rapsodo is another technology I will be using to collect my data, which includes pitching metrics such as velocity, spin rate, spin efficiency, spin direction, horizontal break, vertical break, and release data. For off batted-ball metrics it includes exit velocity, launch angle, and carry distance.
