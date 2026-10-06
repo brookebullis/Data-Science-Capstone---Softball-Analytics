@@ -1,0 +1,219 @@
+---
+title: "Fall 2025 / Preseason Predictors -> 2026 Season Outcomes: Pitching + Hitting"
+author: "Brooke Bullis"
+date: "October 4, 2026"
+format: pdf
+editor: visual
+---
+
+## What this does, and the headline finding up front
+
+This builds **two** game-level panels, one for pitching and one for
+hitting, per the "can I do both pitching and hitting?" direction:
+
+- **Pitcher-game panel**: predictors are each pitcher's **fall 2025**
+  (Sep 1 - Dec 31, 2025) Rapsodo bullpen/live-session summaries; the
+  outcome is every individual 2026 game that pitcher threw. One row per
+  pitcher-game.
+- **Hitter-game panel**: predictors are each hitter's **widened preseason**
+  (Sep 1, 2025 - Feb 12, 2026, i.e. anything strictly before the first 2026
+  game on Feb 13) Rapsodo hitting-session summaries; the outcome is every
+  individual 2026 game that hitter played. One row per hitter-game.
+
+**Why two different windows?** The 4 roster pitchers (Reimers, Bautista,
+Lopez, Springer) already have dense fall-2025 bullpen histories, so the
+pitching side keeps the strict "fall" window. Hitting is different: almost
+nobody's *earliest* tracked Rapsodo hitting session falls in fall 2025 --
+most of the roster first shows up at the team's Jan 30 / Feb 6 / Feb 7 2026
+preseason scrimmages. Under the strict fall-2025 window, only **2 of 16**
+players had usable hitting predictor data; widening to "anything before the
+first game" raises that to **14 of 16** -- a real, substantive improvement,
+not a loophole. The 2 players still excluded from the hitter panel (Mia
+Lopez, Audrey Reimers) have zero Rapsodo hitting sessions on file in either
+window; both are already fully represented in the pitcher panel.
+
+Sessions on/after Feb 13, 2026 (2/20 scrimmage, 4/1 live, etc.) are
+excluded from both windows -- using in-season tracking data to "predict"
+the season it came from would be data leakage.
+
+Blast Motion's swing-tracking data isn't in either panel at all -- its
+dashboard is an embedded panel that automation can't reach, and it's still
+pending a raw export from Blast Motion / the team admin. If that export
+ever arrives, it could plausibly fill in Lopez's and Reimers' hitting side.
+
+```{r setup}
+#| message: false
+library(tidyverse)
+
+rapsodo_dir <- "rapsodo_fall2025"
+sagehens_dir <- "sagehens_2026"
+```
+
+## Load the Rapsodo sessions and the 2026 per-game logs
+
+```{r load}
+rapsodo_sessions <- read_csv(file.path(rapsodo_dir, "rapsodo_sessions_sep2025_oct2026.csv"))
+
+pitching_games <- read_csv(file.path(sagehens_dir, "player_gamelog_pitching_2026.csv"))
+batting_games  <- read_csv(file.path(sagehens_dir, "player_gamelog_batting_2026.csv"))
+```
+
+## Name crosswalk
+
+Sage Hens lists players as "Last, First"; Rapsodo lists them as typed in by
+whoever logged the session (inconsistent capitalization). Built by hand
+from the two rosters collected this project -- double-check this before
+relying on it further.
+
+```{r crosswalk}
+crosswalk <- tribble(
+  ~player,              ~rapsodo_name,         ~is_pitcher,
+  "Liu, Kylie",          "kylie liu",           FALSE,
+  "Murguia, Natalie",    "natalie murguia",     FALSE,
+  "Huryn, Sadie",        "Sadie Huryn",         FALSE,
+  "Sefkow, Claire",      "claire sefkow",       FALSE,
+  "Song, Yuri",          "Yuri Song",           FALSE,
+  "Milton, Marie",       "Marie Milton",        FALSE,
+  "Phillips, Gianna",    "Gianna Phillips",     FALSE,
+  "Reimers, Audrey",     "Audrey Reimers",      TRUE,
+  "Roberts, Sophia",     "Sophia Roberts",      FALSE,
+  "Bautista, Ava",       "Ava Bautista",        TRUE,
+  "Grande, Maya",        "Maya Grande",         FALSE,
+  "Burnham, Violet",     "Violet Burnham",      FALSE,
+  "Gibson, Summer",      "summer gibson",       FALSE,
+  "Nguyen, Jiselle",     "Jiselle Nguyen",      FALSE,
+  "Springer, Nyla",      "Nyla Springer",       TRUE,
+  "Lopez, Mia",          "mia lopez",           TRUE,
+)
+norm_name <- function(x) str_squish(str_to_lower(x))
+```
+
+## Aggregate Rapsodo sessions per player/role, by window
+
+```{r aggregate}
+fall2025 <- rapsodo_sessions |>
+  filter(in_fall2025_window) |>
+  mutate(match_key = norm_name(player))
+
+preseason <- rapsodo_sessions |>
+  filter(in_preseason_window) |>
+  mutate(match_key = norm_name(player))
+
+summarise_sessions <- function(df) {
+  df |>
+    group_by(match_key, role) |>
+    summarise(
+      n_sessions = n(),
+      metric1_avg = mean(metric1_value, na.rm = TRUE),
+      metric2_avg = mean(metric2_value, na.rm = TRUE),
+      earliest = min(date),
+      latest = max(date),
+      .groups = "drop"
+    )
+}
+
+fall2025_summary <- summarise_sessions(fall2025)
+preseason_summary <- summarise_sessions(preseason)
+
+pitch_predictors <- fall2025_summary |>
+  filter(role == "pitcher") |>
+  select(match_key, fall2025_pitch_n = n_sessions,
+         fall2025_pitch_avg_spin_rate = metric1_avg,
+         fall2025_pitch_avg_velo = metric2_avg,
+         fall2025_pitch_earliest = earliest, fall2025_pitch_latest = latest)
+
+hit_predictors <- preseason_summary |>
+  filter(role == "hitter") |>
+  select(match_key, preseason_hit_n = n_sessions,
+         preseason_hit_avg_distance = metric1_avg,
+         preseason_hit_avg_exit_velo = metric2_avg,
+         preseason_hit_earliest = earliest, preseason_hit_latest = latest)
+```
+
+## Pitcher-game panel
+
+One row per pitcher-game: fall-2025 pitching predictors joined onto every
+2026 game that pitcher threw.
+
+```{r pitcher-panel}
+pitcher_game_panel <- crosswalk |>
+  filter(is_pitcher) |>
+  mutate(match_key = norm_name(rapsodo_name)) |>
+  inner_join(pitch_predictors, by = "match_key") |>
+  inner_join(pitching_games, by = "player") |>
+  select(-match_key, -rapsodo_name, -is_pitcher)
+
+pitcher_game_panel
+n_pitchers_usable <- n_distinct(pitcher_game_panel$player)
+n_pitcher_games <- nrow(pitcher_game_panel)
+```
+
+## Hitter-game panel
+
+One row per hitter-game: widened-preseason hitting predictors joined onto
+every 2026 game that hitter played. `inner_join` on the predictors means a
+player with zero Rapsodo hitting sessions (Lopez, Reimers) is naturally
+excluded rather than silently given NA predictor rows.
+
+```{r hitter-panel}
+hitter_game_panel <- crosswalk |>
+  mutate(match_key = norm_name(rapsodo_name)) |>
+  inner_join(hit_predictors, by = "match_key") |>
+  inner_join(batting_games, by = "player") |>
+  select(-match_key, -rapsodo_name, -is_pitcher)
+
+hitter_game_panel
+n_hitters_usable <- n_distinct(hitter_game_panel$player)
+n_hitter_games <- nrow(hitter_game_panel)
+
+hitters_excluded <- crosswalk |>
+  mutate(match_key = norm_name(rapsodo_name)) |>
+  anti_join(hit_predictors, by = "match_key") |>
+  pull(player)
+hitters_excluded
+```
+
+## Diagnostics: how much better is the widened window?
+
+```{r diagnostics}
+tibble(
+  panel = c("pitcher-game (fall-2025 window)", "hitter-game (widened preseason window)"),
+  players_usable = c(n_pitchers_usable, n_hitters_usable),
+  players_total = c(4, nrow(crosswalk)),
+  total_game_rows = c(n_pitcher_games, n_hitter_games)
+)
+
+# for comparison: how many hitters would a STRICT fall-2025 window give?
+n_hitters_fall2025_only <- fall2025_summary |>
+  filter(role == "hitter") |>
+  nrow()
+n_hitters_fall2025_only
+```
+
+## Save
+
+```{r save}
+dir.create("model_dataset", showWarnings = FALSE)
+write_csv(pitcher_game_panel, "model_dataset/pitcher_game_panel.csv")
+write_csv(hitter_game_panel, "model_dataset/hitter_game_panel.csv")
+```
+
+## Notes for the Data Description / Limitations section
+
+The headline change from the first pass: predicting 2026 outcomes from
+preseason tracking data works noticeably better once "preseason" is
+defined as *everything before the first game* rather than strictly *fall*.
+That's a defensible redefinition, not a post-hoc fudge -- the team's own
+practice calendar has most everyone showing up on Rapsodo for the first
+time at the Jan 30 / Feb 6 / Feb 7 scrimmages, not in September. Two
+genuine limitations remain worth stating plainly: (1) Mia Lopez and Audrey
+Reimers have no Rapsodo hitting data in any window, so the hitter panel
+necessarily leaves them out (they're still fully represented as pitchers);
+(2) Blast Motion's fall/preseason swing-tracking data isn't in either panel
+-- its dashboard couldn't be automated, and getting it requires a raw
+export from Blast Motion or the team's admin, a separate follow-up outside
+this script. Because each panel is now game-level rather than
+player-level, the usual within-player correlation across a pitcher's or
+hitter's games should be accounted for in any model fit on these panels
+(e.g., player as a random effect, or cluster-robust standard errors) rather
+than treating each game as fully independent.

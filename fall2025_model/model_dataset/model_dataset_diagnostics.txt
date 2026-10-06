@@ -1,0 +1,31 @@
+DUAL-PANEL MODEL DATASET: DIAGNOSTICS
+=========================================================
+
+PITCHER-GAME PANEL (predictors = fall-2025 Rapsodo pitching summaries,
+outcome = each 2026 game, one row per pitcher-game):
+  Pitchers with usable fall-2025 predictor data: 4 of 4
+  Total pitcher-game rows: 74
+
+HITTER-GAME PANEL (predictors = WIDENED PRESEASON [Sep 1, 2025 - Feb 12,
+2026] Rapsodo hitting summaries, outcome = each 2026 game, one row per
+hitter-game):
+  Roster players: 16
+  Hitters with usable preseason predictor data: 14 of 16
+  Total hitter-game rows: 403
+
+Players excluded from the hitter panel (zero Rapsodo hitting sessions
+found in either window -- they're covered by the pitcher panel instead):
+  - Lopez, Mia
+  - Reimers, Audrey
+
+For comparison, under the strict fall-2025-only window, only 2 of 16
+players had usable hitting predictor data. Widening to the preseason
+window (per Brooke's 'can I do both pitching and hitting?' request)
+raised that to 14 of 16, because most of the roster's
+earliest tracked sessions are the team's Jan 30 / Feb 6 / Feb 7 2026
+preseason scrimmages rather than anything in fall 2025.
+
+Blast Motion fall-2025/preseason swing data is NOT included anywhere in
+this file. That dashboard is an embedded, access-blocked panel that
+couldn't be automated; it is still pending a raw CSV export from Blast
+Motion or the team's admin.

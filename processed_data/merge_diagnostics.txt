@@ -1,0 +1,22 @@
+MERGE DIAGNOSTICS
+=================
+
+Hitters base (Rapsodo Overview): 19 rows
+  matched to Blast Motion average metrics: 5
+  matched to 6-4-3 Charts season hitting stats: 7
+
+Pitchers base (Rapsodo Overview): 8 rows
+  matched to Blast Motion average metrics: 2
+  matched to 6-4-3 Charts season pitching stats: 1
+
+Flagged name mismatches needing manual review (not auto-merged):
+  - Blast Motion 'Katie Liu' vs Rapsodo 'kylie liu' -- likely same player, confirm spelling
+
+Duplicate names found in one raw source (kept as separate rows, tagged):
+  - 'yuri song' appears 2x in rapsodo_hitting_overview.csv
+
+Players appearing in Blast Motion but not in the Rapsodo hitter list:
+  - Emiko Takemoto
+  - Zoey Meadows
+  - Katie Liu
+  - Jamie Elkington

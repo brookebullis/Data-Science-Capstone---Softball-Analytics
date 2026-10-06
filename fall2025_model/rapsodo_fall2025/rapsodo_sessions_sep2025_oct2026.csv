@@ -1,0 +1,117 @@
+player,role,rapsodo_team_id,date,session_name,session_type,shots,metric1_label,metric1_value,metric2_label,metric2_value,in_fall2025_window,in_preseason_window
+Audrey Reimers,pitcher,1390004,2025-09-05,9/5/25 Pitchers Bullpen Audrey/Mia,Bullpen,17,avg_spin_rate,1020,avg_velo,52.1,True,True
+Audrey Reimers,pitcher,1390004,2025-09-10,Bullpen Focus On Wrist Snap,Bullpen,51,avg_spin_rate,1213,avg_velo,55.1,True,True
+Audrey Reimers,pitcher,1390004,2025-09-27,Untitled,Bullpen,39,avg_spin_rate,1028,avg_velo,57.7,True,True
+Audrey Reimers,pitcher,1390004,2025-10-01,Audrey 10/1,Bullpen,64,avg_spin_rate,1042,avg_velo,57.8,True,True
+Audrey Reimers,pitcher,1390004,2025-10-15,October 15th,Bullpen,67,avg_spin_rate,1041,avg_velo,57.2,True,True
+Audrey Reimers,pitcher,1390004,2025-10-19,Audrey Bullpen 10/19,Bullpen,141,avg_spin_rate,1024,avg_velo,56.3,True,True
+Audrey Reimers,pitcher,1390004,2025-10-21,Audrey 10/22,Bullpen,101,avg_spin_rate,1070,avg_velo,57.4,True,True
+Audrey Reimers,pitcher,1390004,2025-10-25,10/25 Scrimmage,Live,44,avg_spin_rate,982,avg_velo,55.4,True,True
+Audrey Reimers,pitcher,1390004,2025-10-27,Audrey 10/27,Bullpen,43,avg_spin_rate,998,avg_velo,55.1,True,True
+Audrey Reimers,pitcher,1390004,2025-10-31,Audrey,Bullpen,67,avg_spin_rate,983,avg_velo,54.7,True,True
+Audrey Reimers,pitcher,1390004,2025-11-13,Audrey 11/13,Bullpen,67,avg_spin_rate,1005,avg_velo,55.5,True,True
+Audrey Reimers,pitcher,1390004,2025-11-15,Untitled,Bullpen,88,avg_spin_rate,1000,avg_velo,54.7,True,True
+Audrey Reimers,pitcher,1390004,2025-11-19,Audry,Bullpen,3,avg_spin_rate,988,avg_velo,52.1,True,True
+Audrey Reimers,pitcher,1390004,2026-02-03,Audrey 2/3,Bullpen,61,avg_spin_rate,994,avg_velo,55.1,False,True
+Audrey Reimers,pitcher,1390004,2026-02-06,2/6 Scrimmage,Live On Live,40,avg_spin_rate,1042,avg_velo,57.1,False,True
+Audrey Reimers,pitcher,1390004,2026-02-20,2/20 Scrimmage,Live On Live,38,avg_spin_rate,958,avg_velo,55.9,False,False
+Audrey Reimers,pitcher,1390004,2026-02-24,Audrey 2/24,Bullpen,120,avg_spin_rate,986,avg_velo,54.1,False,False
+Audrey Reimers,pitcher,1390004,2026-04-21,Audrey Bullpen 4-21,Bullpen,85,avg_spin_rate,1008,avg_velo,53.4,False,False
+Audrey Reimers,pitcher,1390004,2026-04-26,4-26,Bullpen,101,avg_spin_rate,980,avg_velo,42.9,False,False
+Audrey Reimers,pitcher,1390004,2026-05-15,515,Bullpen,19,avg_spin_rate,837,avg_velo,37.2,False,False
+Audrey Reimers,pitcher,1390004,2026-09-15,Bullpen,Bullpen,11,avg_spin_rate,1175,avg_velo,55.1,False,False
+Audrey Reimers,pitcher,1390004,2026-09-30,Wed Sep 30,Bullpen,24,avg_spin_rate,1043,avg_velo,53.9,False,False
+Audrey Reimers,pitcher,1390004,2026-10-02,Fri Oct 2,Live,35,avg_spin_rate,1007,avg_velo,54.8,False,False
+Ava Bautista,hitter,1502134,2025-09-05,9/5/25 BP,Batting Practice,13,avg_distance,170,avg_exit_velo,58.8,True,True
+Ava Bautista,hitter,1502134,2026-01-30,1/30 Scrimmage,Live On Live,7,avg_distance,221,avg_exit_velo,71.5,False,True
+Ava Bautista,hitter,1502134,2026-02-06,2/6 Scrimmage,Live On Live,6,avg_distance,93,avg_exit_velo,67.4,False,True
+Ava Bautista,hitter,1502134,2026-02-07,2/7 Scrimmage,Live On Live,9,avg_distance,57,avg_exit_velo,34.7,False,True
+Ava Bautista,pitcher,1502134,2025-09-05,9/5/25 Bullpen Ava 2,Bullpen,3,avg_spin_rate,1512,avg_velo,48.2,True,True
+Ava Bautista,pitcher,1502134,2025-09-05,9/5/25 Bullpen Ava,Bullpen,12,avg_spin_rate,1069,avg_velo,50.7,True,True
+Ava Bautista,pitcher,1502134,2025-09-27,Untitled,Bullpen,29,avg_spin_rate,865,avg_velo,48.5,True,True
+Ava Bautista,pitcher,1502134,2025-10-25,10/25 Scrimmage,Live,50,avg_spin_rate,1046,avg_velo,53.3,True,True
+Ava Bautista,pitcher,1502134,2025-10-31,Ava 10/31,Bullpen,29,avg_spin_rate,1133,avg_velo,54.5,True,True
+Ava Bautista,pitcher,1502134,2025-10-31,Audrey,Bullpen,1,avg_spin_rate,595,avg_velo,50.9,True,True
+Ava Bautista,pitcher,1502134,2025-11-13,Ava 10 Batters,Bullpen,28,avg_spin_rate,1459,avg_velo,53.4,True,True
+Ava Bautista,pitcher,1502134,2025-11-15,Ava,Bullpen,74,avg_spin_rate,911,avg_velo,49.7,True,True
+Ava Bautista,pitcher,1502134,2026-01-30,1/30 Scrimmage,Live On Live,30,avg_spin_rate,1007,avg_velo,53.5,False,True
+Ava Bautista,pitcher,1502134,2026-02-07,2/7 Scrimmage,Live On Live,32,avg_spin_rate,1288,avg_velo,52.8,False,True
+Ava Bautista,pitcher,1502134,2026-02-24,Ava Sequence High Low Change,Bullpen,55,avg_spin_rate,1041,avg_velo,52.1,False,False
+Ava Bautista,pitcher,1502134,2026-04-01,4/1 Live,Live On Live,46,avg_spin_rate,1275,avg_velo,53.4,False,False
+Gianna Phillips,hitter,1500314,2025-09-05,9/5/25 BP,Batting Practice,10,avg_distance,127,avg_exit_velo,58.2,True,True
+Gianna Phillips,hitter,1500314,2025-09-13,Batting Practice,Batting Practice,8,avg_distance,67,avg_exit_velo,41.5,True,True
+Gianna Phillips,hitter,1500314,2026-01-30,1/30 Scrimmage,Live On Live,3,avg_distance,74,avg_exit_velo,56.8,False,True
+Gianna Phillips,hitter,1500314,2026-02-06,2/6 Scrimmage,Live On Live,8,avg_distance,74,avg_exit_velo,62.4,False,True
+Gianna Phillips,hitter,1500314,2026-02-07,2/7 Scrimmage,Live On Live,7,avg_distance,,avg_exit_velo,,False,True
+Jiselle Nguyen,hitter,1383735,2025-09-13,Batting Practice,Batting Practice,8,avg_distance,49,avg_exit_velo,36.2,True,True
+Jiselle Nguyen,hitter,1383735,2026-01-30,1/30 Scrimmage,Live On Live,14,avg_distance,80,avg_exit_velo,52.5,False,True
+Jiselle Nguyen,hitter,1383735,2026-02-06,2/6 Scrimmage,Live On Live,8,avg_distance,27,avg_exit_velo,55.3,False,True
+Jiselle Nguyen,hitter,1383735,2026-02-07,2/7 Scrimmage,Live On Live,9,avg_distance,,avg_exit_velo,,False,True
+Marie Milton,hitter,1134133,2025-09-13,9/13 Practice,Batting Practice,2,avg_distance,,avg_exit_velo,,True,True
+Marie Milton,hitter,1134133,2026-01-30,1/30 Scrimmage,Live On Live,7,avg_distance,216,avg_exit_velo,64.7,False,True
+Marie Milton,hitter,1134133,2026-02-06,2/6 Scrimmage,Live On Live,6,avg_distance,70,avg_exit_velo,51.4,False,True
+Marie Milton,hitter,1134133,2026-02-07,2/7 Scrimmage,Live On Live,2,avg_distance,115,avg_exit_velo,58.9,False,True
+Maya Grande,hitter,1502130,2026-01-30,1/30 Scrimmage,Live On Live,9,avg_distance,50,avg_exit_velo,46.6,False,True
+Maya Grande,hitter,1502130,2026-02-06,2/6 Scrimmage,Live On Live,4,avg_distance,,avg_exit_velo,,False,True
+Maya Grande,hitter,1502130,2026-02-07,2/7 Scrimmage,Live On Live,3,avg_distance,,avg_exit_velo,,False,True
+Nyla Springer,hitter,1133607,2025-09-05,9/5/25 BP,Batting Practice,8,avg_distance,101,avg_exit_velo,57.4,True,True
+Nyla Springer,hitter,1133607,2025-09-13,Batting Practice,Batting Practice,10,avg_distance,43,avg_exit_velo,37.4,True,True
+Nyla Springer,hitter,1133607,2026-01-30,1/30 Scrimmage,Live On Live,5,avg_distance,114,avg_exit_velo,60.7,False,True
+Nyla Springer,hitter,1133607,2026-02-06,2/6 Scrimmage,Live On Live,2,avg_distance,29,avg_exit_velo,54.0,False,True
+Nyla Springer,hitter,1133607,2026-02-07,2/7 Scrimmage,Live On Live,6,avg_distance,125,avg_exit_velo,65.1,False,True
+Nyla Springer,pitcher,1133607,2025-10-25,10/25 Scrimmage,Live,35,avg_spin_rate,971,avg_velo,53.8,True,True
+Nyla Springer,pitcher,1133607,2025-10-31,Nyla,Bullpen,48,avg_spin_rate,1005,avg_velo,52.7,True,True
+Nyla Springer,pitcher,1133607,2025-11-15,Nyla,Bullpen,92,avg_spin_rate,1052,avg_velo,54.3,True,True
+Nyla Springer,pitcher,1133607,2026-01-30,1/30 Scrimmage,Live On Live,44,avg_spin_rate,956,avg_velo,54.5,False,True
+Nyla Springer,pitcher,1133607,2026-02-06,2/6 Scrimmage,Live On Live,27,avg_spin_rate,972,avg_velo,54.1,False,True
+Nyla Springer,pitcher,1133607,2026-02-07,2/7 Scrimmage,Live On Live,32,avg_spin_rate,996,avg_velo,54.3,False,True
+Nyla Springer,pitcher,1133607,2026-02-20,2/20 Scrimmage,Live On Live,37,avg_spin_rate,979,avg_velo,55.2,False,False
+Nyla Springer,pitcher,1133607,2026-02-24,Nyla Sequence,Bullpen,53,avg_spin_rate,936,avg_velo,50.7,False,False
+Nyla Springer,pitcher,1133607,2026-04-01,4/1 Live,Live On Live,69,avg_spin_rate,987,avg_velo,56.0,False,False
+Nyla Springer,pitcher,1133607,2026-04-21,Nyla Bullpen 4,Bullpen,20,avg_spin_rate,965,avg_velo,53.4,False,False
+Sadie Huryn,hitter,1500307,2025-09-05,9/5/25 BP,Batting Practice,7,avg_distance,105,avg_exit_velo,62.2,True,True
+Sadie Huryn,hitter,1500307,2025-09-13,9/13 Practice,Batting Practice,4,avg_distance,51,avg_exit_velo,40.1,True,True
+Sadie Huryn,hitter,1500307,2026-02-06,2/6 Scrimmage,Live On Live,3,avg_distance,84,avg_exit_velo,64.2,False,True
+Sadie Huryn,hitter,1500307,2026-02-07,2/7 Scrimmage,Live On Live,4,avg_distance,73,avg_exit_velo,49.3,False,True
+Sophia Roberts,hitter,1133627,2026-01-30,1/30 Scrimmage,Live On Live,7,avg_distance,101,avg_exit_velo,51.3,False,True
+Sophia Roberts,hitter,1133627,2026-02-06,2/6 Scrimmage,Live On Live,8,avg_distance,82,avg_exit_velo,59.6,False,True
+Sophia Roberts,hitter,1133627,2026-02-07,2/7 Scrimmage,Live On Live,7,avg_distance,11,avg_exit_velo,50.7,False,True
+Violet Burnham,hitter,1383734,2025-09-13,Batting Practice,Batting Practice,8,avg_distance,43,avg_exit_velo,36.7,True,True
+Violet Burnham,hitter,1383734,2026-01-30,1/30 Scrimmage,Live On Live,6,avg_distance,61,avg_exit_velo,56.2,False,True
+Violet Burnham,hitter,1383734,2026-02-06,2/6 Scrimmage,Live On Live,5,avg_distance,28,avg_exit_velo,42.3,False,True
+Violet Burnham,hitter,1383734,2026-02-07,2/7 Scrimmage,Live On Live,5,avg_distance,,avg_exit_velo,,False,True
+Yuri Song,hitter,1506359,2025-09-05,9/5/25 BP,Batting Practice,10,avg_distance,112,avg_exit_velo,61.7,True,True
+Yuri Song,hitter,1501066,2026-01-30,1/30 Scrimmage,Live On Live,7,avg_distance,78,avg_exit_velo,61.3,False,True
+Yuri Song,hitter,1506359,2026-02-06,2/6 Scrimmage,Live On Live,11,avg_distance,14,avg_exit_velo,68.6,False,True
+Zoey Meadows,pitcher,1632388,2026-09-15,Bullpen,Bullpen,24,avg_spin_rate,993,avg_velo,52.0,False,False
+Zoey Meadows,pitcher,1632388,2026-09-30,Wed Sep 30,Bullpen,26,avg_spin_rate,1045,avg_velo,53.9,False,False
+Zoey Meadows,pitcher,1632388,2026-10-02,Fri Oct 2,Live,30,avg_spin_rate,1085,avg_velo,54.8,False,False
+brooke bullis,hitter,1133593,2025-09-05,9/5/25 BP,Batting Practice,9,avg_distance,112,avg_exit_velo,59.3,True,True
+claire sefkow,hitter,1052687,2026-01-30,1/30 Scrimmage,Live On Live,8,avg_distance,108,avg_exit_velo,54.9,False,True
+claire sefkow,hitter,1052687,2026-02-06,2/6 Scrimmage,Live On Live,6,avg_distance,55,avg_exit_velo,56.9,False,True
+claire sefkow,hitter,1052687,2026-02-07,2/7 Scrimmage,Live On Live,7,avg_distance,,avg_exit_velo,,False,True
+kylie liu,hitter,1052650,2025-09-05,9/5/25 BP,Batting Practice,9,avg_distance,111,avg_exit_velo,65.6,True,True
+kylie liu,hitter,1052650,2025-09-13,Batting Practice,Batting Practice,8,avg_distance,,avg_exit_velo,,True,True
+kylie liu,hitter,1052650,2025-09-13,9/13 Practice,Batting Practice,10,avg_distance,56,avg_exit_velo,41.6,True,True
+kylie liu,hitter,1052650,2026-01-30,1/30 Scrimmage,Live On Live,5,avg_distance,167,avg_exit_velo,65.5,False,True
+kylie liu,hitter,1052650,2026-02-06,2/6 Scrimmage,Live On Live,5,avg_distance,240,avg_exit_velo,69.4,False,True
+kylie liu,hitter,1052650,2026-02-07,2/7 Scrimmage,Live On Live,9,avg_distance,,avg_exit_velo,,False,True
+mia lopez,pitcher,1059392,2025-09-05,Mia One Of Every Pitch Video,Bullpen,8,avg_spin_rate,1051,avg_velo,52.9,True,True
+mia lopez,pitcher,1059392,2025-09-05,9/5/25 Pitchers Bullpen Audrey/Mia,Bullpen,25,avg_spin_rate,1077,avg_velo,52.7,True,True
+mia lopez,pitcher,1059392,2025-09-27,Mia Bullpen,Bullpen,87,avg_spin_rate,1060,avg_velo,53.8,True,True
+mia lopez,pitcher,1059392,2025-10-25,10/25 Scrimmage,Live,31,avg_spin_rate,1104,avg_velo,55.0,True,True
+mia lopez,pitcher,1059392,2025-10-31,Mia,Bullpen,42,avg_spin_rate,952,avg_velo,53.0,True,True
+mia lopez,pitcher,1059392,2025-10-31,Nyla,Bullpen,1,avg_spin_rate,989,avg_velo,50.3,True,True
+mia lopez,pitcher,1059392,2025-11-13,Untitled,Bullpen,34,avg_spin_rate,1002,avg_velo,54.8,True,True
+mia lopez,pitcher,1059392,2026-01-30,1/30 Scrimmage,Live On Live,26,avg_spin_rate,1006,avg_velo,55.2,False,True
+mia lopez,pitcher,1059392,2026-02-06,2/6 Scrimmage,Live On Live,37,avg_spin_rate,1086,avg_velo,57.5,False,True
+mia lopez,pitcher,1059392,2026-02-07,2/7 Scrimmage,Live On Live,35,avg_spin_rate,1242,avg_velo,55.9,False,True
+natalie murguia,hitter,1052862,2025-09-13,9/13 Practice,Batting Practice,3,avg_distance,62,avg_exit_velo,52.4,True,True
+natalie murguia,hitter,1052862,2026-01-30,1/30 Scrimmage,Live On Live,8,avg_distance,109,avg_exit_velo,67.5,False,True
+natalie murguia,hitter,1052862,2026-02-06,2/6 Scrimmage,Live On Live,13,avg_distance,84,avg_exit_velo,64.7,False,True
+natalie murguia,hitter,1052862,2026-02-07,2/7 Scrimmage,Live On Live,8,avg_distance,,avg_exit_velo,,False,True
+summer gibson,hitter,1135337,2025-09-05,9/5/25 BP,Batting Practice,9,avg_distance,96,avg_exit_velo,48.7,True,True
+summer gibson,hitter,1135337,2025-09-13,9/13 Practice,Batting Practice,21,avg_distance,46,avg_exit_velo,35.2,True,True
+summer gibson,hitter,1135337,2026-01-30,1/30 Scrimmage,Live On Live,3,avg_distance,106,avg_exit_velo,53.1,False,True
+summer gibson,hitter,1135337,2026-02-06,2/6 Scrimmage,Live On Live,6,avg_distance,62,avg_exit_velo,46.5,False,True
+summer gibson,hitter,1135337,2026-02-07,2/7 Scrimmage,Live On Live,5,avg_distance,,avg_exit_velo,,False,True

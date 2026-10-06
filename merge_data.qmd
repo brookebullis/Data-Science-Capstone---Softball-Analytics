@@ -1,0 +1,132 @@
+---
+title: "Merging the Blast Motion, Rapsodo, and 6-4-3 Charts Data"
+author: "Brooke Bullis"
+date: "October 3, 2026"
+format: pdf
+editor: visual
+---
+
+## What this does
+
+None of the three systems link to each other, so the only shared key across them is a player's name. This script reads in the season-aggregate exports I pulled from each platform, standardizes the names, and joins them into one hitters table and one pitchers table. It also prints a short diagnostics report so I can see exactly which players matched, which didn't, and which names need a manual check before I trust the merge.
+
+```{r setup}
+#| message: false
+library(tidyverse)
+
+raw_dir <- "raw_data"
+```
+
+## Load the raw exports
+
+```{r load}
+blast <- read_csv(file.path(raw_dir, "blast_average_metrics.csv")) |>
+  mutate(player_name = paste(first_name, last_name))
+
+rapsodo_hit <- read_csv(file.path(raw_dir, "rapsodo_hitting_overview.csv"))
+rapsodo_pitch <- read_csv(file.path(raw_dir, "rapsodo_pitching_overview.csv"))
+
+charts_hit <- read_csv(file.path(raw_dir, "643_hitting_season_2026.csv")) |>
+  filter(batter != "Team")
+
+charts_pitch <- read_csv(file.path(raw_dir, "643_pitching_season_2026.csv")) |>
+  filter(pitcher != "Team")
+```
+
+## Standardize names for matching
+
+I'm matching on a lowercased, trimmed version of each name rather than the raw spelling, since the same player shows up as "Audrey Reimers" in one system and potentially different capitalization in another.
+
+```{r normalize}
+norm_name <- function(x) str_squish(str_to_lower(x))
+
+blast <- blast |> mutate(match_key = norm_name(player_name))
+rapsodo_hit <- rapsodo_hit |> mutate(match_key = norm_name(Player))
+rapsodo_pitch <- rapsodo_pitch |> mutate(match_key = norm_name(Player))
+charts_hit <- charts_hit |> mutate(match_key = norm_name(batter))
+charts_pitch <- charts_pitch |> mutate(match_key = norm_name(pitcher))
+```
+
+One known mismatch I found by hand and did **not** auto-correct: Blast Motion lists "Katie Liu" while Rapsodo lists "kylie liu". These are almost certainly the same person, but I'm flagging it instead of silently merging two different first names, since this is the kind of cleaning decision I need to explain in my Data Description section anyway.
+
+```{r flag-mismatches}
+known_mismatches <- tibble(
+  blast_name = "Katie Liu",
+  other_system_name = "kylie liu",
+  note = "likely the same player; confirm spelling before trusting a merged row"
+)
+known_mismatches
+```
+
+Rapsodo's hitting export also has two rows both named "Yuri Song" with different stats, most likely two separate sessions exported as separate rows. I'm keeping both rather than averaging them, since I don't yet know which session is which.
+
+```{r dedupe-check}
+rapsodo_hit |>
+  count(match_key) |>
+  filter(n > 1)
+```
+
+## Join into two tables
+
+Rapsodo's roster is the most complete, so it's the base for both tables. Blast Motion and 6-4-3 Charts join on, since not every player who used Rapsodo also has Blast swing data or in-game 6-4-3 stats (e.g., a player can have bullpen/BP sessions tracked without being in the game box score).
+
+```{r join-hitters}
+hitters_merged <- rapsodo_hit |>
+  rename_with(~ paste0("rapsodo_", .x), -c(Player, match_key)) |>
+  left_join(
+    blast |> rename_with(~ paste0("blast_", .x), -match_key),
+    by = "match_key"
+  ) |>
+  left_join(
+    charts_hit |> rename_with(~ paste0("charts643_", .x), -match_key),
+    by = "match_key"
+  )
+
+pitchers_merged <- rapsodo_pitch |>
+  rename_with(~ paste0("rapsodo_", .x), -c(Player, match_key)) |>
+  left_join(
+    blast |> rename_with(~ paste0("blast_", .x), -match_key),
+    by = "match_key"
+  ) |>
+  left_join(
+    charts_pitch |> rename_with(~ paste0("charts643_", .x), -match_key),
+    by = "match_key"
+  )
+```
+
+## Diagnostics: how well did the merge actually work?
+
+```{r diagnostics}
+tibble(
+  table = c("hitters", "pitchers"),
+  total_players = c(nrow(hitters_merged), nrow(pitchers_merged)),
+  matched_blast = c(
+    sum(!is.na(hitters_merged$blast_player_name)),
+    sum(!is.na(pitchers_merged$blast_player_name))
+  ),
+  matched_643 = c(
+    sum(!is.na(hitters_merged$`charts643_jersey_num`)),
+    sum(!is.na(pitchers_merged$`charts643_jersey_num`))
+  )
+)
+```
+
+```{r unmatched-blast-players}
+# Players with Blast Motion swing data who never show up in Rapsodo at all
+blast |>
+  filter(!match_key %in% rapsodo_hit$match_key,
+         !match_key %in% rapsodo_pitch$match_key) |>
+  select(player_name)
+```
+
+## Save the merged tables
+
+```{r save}
+dir.create("processed_data", showWarnings = FALSE)
+write_csv(hitters_merged, "processed_data/hitters_merged.csv")
+write_csv(pitchers_merged, "processed_data/pitchers_merged.csv")
+```
+
+## Notes for the Data Description section
+
+A few things worth writing up: not every player appears in every system, which makes sense once you think about why each one was being used (Blast Motion captures any swing session, Rapsodo captures pitching and hitting machine sessions, and 6-4-3 Charts only has players who actually appeared in a game). The Blast Motion dashboard itself only gave me a season-average view through automated tools, since its charts are an embedded dashboard that doesn't expose the finer-grained tabs that way; the more detailed Blast swing-by-swing data needs to come from a direct export request. Once that comes back, the join logic above should still work, since it keys off player name the same way.
