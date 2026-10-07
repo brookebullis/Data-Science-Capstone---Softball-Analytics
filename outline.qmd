@@ -1,8 +1,33 @@
 ---
 title: "Outline"
+author: "Brooke Bullis"
+date: "October 6, 2026"
 format: pdf
 editor: visual
 ---
 
-## 
+Below is a tentative outline of the major sections of my capstone project. Under each title, I explain what I plan to put in that section.
 
+## 1. Introduction
+
+This section will introduce my project and explain why it matters for a college softball program. Coaches at Pomona-Pitzer collect a lot of tracking data before the season starts, but it is hard to know which of those numbers actually mean something once games begin. My research question is which preseason tracking metrics are most predictive of how players perform during the season, and I will answer it separately for pitchers and for hitters. I will also introduce my faculty advisor, Coach JoAnne Ferguson, and give a short preview of the data and the modeling approach before the later sections go into detail.
+
+## 2. Contextualization
+
+This section will give the background that a reader needs to understand the project. I will explain what Rapsodo measures for pitchers and hitters along with how Blast Motion data works, how little published research focuses on collegiate softball hitters, and what earlier studies have found. I will draw mainly on my annotated bibliography, including Li, Cheng, and Zhang's use of random forest on softball performance data, Engelkes and colleagues' study of collegiate softball hitters, and Driveline's validation of Rapsodo accuracy.
+
+## 3. Data Description
+
+This section will explain where the data comes from and how I put it together. The predictors come from Rapsodo and Blast Motion sessions recorded before the 2026 season, and the outcomes come from the official 2026 game logs on sagehens.com for all 16 players across 40 games. I will describe how I matched players across the two sources and how I built one table of pitcher-games (4 pitchers, 74 games) and one table of hitter-games (14 hitters, 403 games). Pitchers use fall 2025 sessions, while hitters use a wider window that ends on February 12, 2026, because most hitters were first tracked at the team's late January and early February scrimmages. Only sessions before the first game on February 13, 2026 count as predictors, so in-season data cannot leak into them. I will also describe the limitations plainly, including players with only a few preseason sessions, the known accuracy limits of Rapsodo, and the fact that Blast Motion swing data is not included yet because that export is still pending.
+
+## 4. Ethical Analysis
+
+This section will cover the ethical issues that come up when I analyze tracking data from players on a team I work for as the data analyst. The main questions are consent, who owns the data, and how to protect privacy on a roster of 16 players with only 4 pitchers, where anonymizing individuals is difficult. I will use Kwon's work on athlete data sovereignty to frame the ownership question. I will also address the risk that a model built on one season and a small roster could be misused for playing time or roster decisions. For each issue, I will explain the steps I plan to take, such as asking for the players' consent, reporting results at the team level instead of singling out individuals, and agreeing with my advisor on how the findings may be used.
+
+## 5. Analysis
+
+This section will present the modeling and what it finds. For both the pitching table and the hitting table, I will use a random forest, and possibly gradient-boosted trees, to predict game-level outcomes from the preseason Rapsodo metrics. Those outcomes will be things like strikeouts and earned runs for pitchers, and hits and extra-base hits for hitters. Due to the fact that each player appears in many games and the number of players is small, I will evaluate the models by holding out entire players and compare them against a simpler mixed-effects model that accounts for repeated games from the same player. I will use feature importance to show which preseason metrics matter most, along with visualizations that make those results easy to read.
+
+## 6. Conclusion
+
+This section will connect the findings back to what a coach can use. I will translate the most important preseason metrics into practical suggestions for training, and I will point out where the answers differ between pitchers and hitters. I will also discuss the limitations of the project, including a single season, a small roster, and what another season of data could add.
